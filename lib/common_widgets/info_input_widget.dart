@@ -1,6 +1,7 @@
 import 'package:expense_tracker/common/app_color.dart';
 import 'package:expense_tracker/common/app_text_style.dart';
 import 'package:expense_tracker/common_widgets/one_text_button.dart';
+import 'package:expense_tracker/data/icon_list.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
@@ -33,19 +34,6 @@ class InfoInputWidget extends StatefulWidget {
 }
 
 class _InfoInputWidgetState extends State<InfoInputWidget> {
-  List<String> categoriesIcons = [
-    'entertainment',
-    'food',
-    'home',
-    'pet',
-    'shopping',
-    'tech',
-    'travel'
-  ];
-  String iconSelected = '';
-  Color pickerColor = Color(0xff443a49);
-  Color currentColor = Color(0xff443a49);
-
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -97,7 +85,7 @@ class _InfoInputWidgetState extends State<InfoInputWidget> {
                                         bool isExpanded =
                                             false; // expanded icon input state
                                         String iconSelected = '';
-                                        Color pickerColor = AppColor.whiteColor;
+                                        Color pickColor = AppColor.whiteColor;
 
                                         // StatefulBuilder is used to create a stateful widget for the dialog
                                         return StatefulBuilder(
@@ -300,12 +288,12 @@ class _InfoInputWidgetState extends State<InfoInputWidget> {
                                                                   children: [
                                                                     ColorPicker(
                                                                       pickerColor:
-                                                                          pickerColor,
+                                                                          pickColor,
                                                                       onColorChanged:
                                                                           (color) {
                                                                         setState(
                                                                           () {
-                                                                            pickerColor =
+                                                                            pickColor =
                                                                                 color;
                                                                           },
                                                                         );
@@ -336,7 +324,7 @@ class _InfoInputWidgetState extends State<InfoInputWidget> {
                                                           InputDecoration(
                                                         isDense: true,
                                                         filled: true,
-                                                        fillColor: pickerColor,
+                                                        fillColor: pickColor,
                                                         hintText: 'Color',
                                                         hintStyle: TextStyle(
                                                           color: AppColor
